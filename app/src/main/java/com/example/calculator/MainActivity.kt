@@ -37,62 +37,64 @@ class MainActivity : AppCompatActivity() {
         var result = findViewById<EditText>(R.id.result)
         var builder = StringBuilder()
 
+        lateinit var button: Feature
+
         one.setOnClickListener {
-            /*println("button 1 is pressed!")*/
-            builder.append("1")
-            result.setText(builder)
+            button = Feature.ONE
+            button.action(builder, result)
             Log.i(TAG, "button 1 is pressed!")
         }
         two.setOnClickListener {
-            builder.append("2")
-            result.setText(builder)
+            button = Feature.TWO
+            button.action(builder, result)
             Log.i(TAG, "button 2 is pressed!")
         }
         three.setOnClickListener {
-            builder.append("3")
-            result.setText(builder)
+            button = Feature.THREE
+            button.action(builder, result)
             Log.i(TAG, "button 3 is pressed!")
         }
         four.setOnClickListener {
-            builder.append("4")
-            result.setText(builder)
+            button = Feature.FOUR
+            button.action(builder, result)
             Log.i(TAG, "button 4 is pressed!")
         }
         five.setOnClickListener {
-            builder.append("5")
-            result.setText(builder)
+            button = Feature.FIVE
+            button.action(builder, result)
             Log.i(TAG, "button 5 is pressed!")
         }
         six.setOnClickListener {
-            builder.append("6")
-            result.setText(builder)
+            button = Feature.SIX
+            button.action(builder, result)
             Log.i(TAG, "button 6 is pressed!")
         }
         seven.setOnClickListener {
-            builder.append("7")
-            result.setText(builder)
+            button = Feature.SEVEN
+            button.action(builder, result)
             Log.i(TAG, "button 7 is pressed!")
         }
         eight.setOnClickListener {
-            builder.append("8")
-            result.setText(builder)
+            button = Feature.EIGHT
+            button.action(builder, result)
             Log.i(TAG, "button 8 is pressed!")
         }
         nine.setOnClickListener {
-            builder.append("9")
-            result.setText(builder)
+            button = Feature.NINE
+            button.action(builder, result)
             Log.i(TAG, "button 9 is pressed!")
         }
         zero.setOnClickListener {
-            builder.append("0")
-            result.setText(builder)
+            button = Feature.ZERO
+            button.action(builder, result)
             Log.i(TAG, "button 0 is pressed!")
         }
         decimalPoint.setOnClickListener {
+            button = Feature.DECIMAL_POINT
             if (isDecimal == false) {
                 isDecimal = true
-                builder.append(",")
-                result.setText(builder)
+                button = Feature.DECIMAL_POINT
+                button.action(builder, result)
                 Log.i(TAG, "button , is pressed!")
             }
             else {
@@ -101,23 +103,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         add.setOnClickListener {
-            builder.append("+")
-            result.setText(builder)
+            button = Feature.ADD
+            button.action(builder, result)
             Log.i(TAG, "button + is pressed!")
         }
         sub.setOnClickListener {
-            builder.append("-")
-            result.setText(builder)
+            button = Feature.SUB
+            button.action(builder, result)
             Log.i(TAG, "button - is pressed!")
         }
         mul.setOnClickListener {
-            builder.append("*")
-            result.setText(builder)
+            button = Feature.MUL
+            button.action(builder, result)
             Log.i(TAG, "button * is pressed!")
         }
         div.setOnClickListener {
-            builder.append("/")
-            result.setText(builder)
+            button = Feature.DIV
+            button.action(builder, result)
             Log.i(TAG, "button / is pressed!")
         }
         cancel.setOnClickListener {
@@ -125,8 +127,8 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG, "cannot cancel more!")
             }
             else {
-                builder.deleteCharAt(builder.length - 1)
-                result.setText(builder)
+                button = Feature.CANCEL
+                button.action(builder, result)
                 Log.i(TAG, "cancel button is pressed!")
                 if (!builder.contains(",")) {
                     isDecimal = false
