@@ -29,6 +29,15 @@
             android:gravity="right"
             android:textSize="40dp"/>
 
+    <EditText
+            android:id="@+id/finalResult"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#d5f3f4"
+            android:layout_weight="0.1"
+            android:gravity="right"
+            android:textSize="40dp"
+            />
     <!--includes another layout which represents the calculator buttons-->
     <include layout="@layout/calculator"
              android:id="@+id/num"
